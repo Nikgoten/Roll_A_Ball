@@ -8,9 +8,12 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public Text countText;
     public Text winText;
+    public float jumpHeight;
 
-    private Rigidbody rb;
+    public Rigidbody rb;
+   
     private int count;
+    private bool isFalling = false;
 
     void Start()
     {
@@ -24,11 +27,25 @@ public class PlayerController : MonoBehaviour
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
-
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+       
+        Vector3 movement = new Vector3(moveHorizontal, Time.deltaTime, moveVertical);
 
         rb.AddForce(movement * speed);
-    }
+
+       if (Input.GetKeyDown(KeyCode.Space) && isFalling == false)    
+        {    
+        rb.velocity = new Vector3(moveHorizontal,jumpHeight, moveVertical);        
+        }
+
+    isFalling = true; 
+
+}
+
+    void OnCollisionStay()
+{
+    isFalling = false;
+
+}
 
     void OnTriggerEnter(Collider other)
     {
