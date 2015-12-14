@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     public float jumpHeight;
 
     public Rigidbody rb;
-   
+
     private int count;
     private bool isFalling = false;
 
@@ -27,25 +27,29 @@ public class PlayerController : MonoBehaviour
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
-       
-        Vector3 movement = new Vector3(moveHorizontal, Time.deltaTime, moveVertical);
+
+        Vector3 movement = transform.forward * moveVertical + transform.right * moveHorizontal;
 
         rb.AddForce(movement * speed);
+       
+    }
 
-       if (Input.GetKeyDown(KeyCode.Space) && isFalling == false)    
-        {    
-        rb.velocity = new Vector3(moveHorizontal,jumpHeight, moveVertical);        
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && isFalling == false)
+        {
+            rb.AddForce(-Physics.gravity.normalized * jumpHeight );
+            isFalling = true;
         }
 
-    isFalling = true; 
+        
 
-}
-
+    }
     void OnCollisionStay()
-{
-    isFalling = false;
+    {
+       
 
-}
+    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -64,5 +68,21 @@ public class PlayerController : MonoBehaviour
         {
             winText.text = "You Win!";
         }
+    }
+
+    void OnCollisionEnter(Collision EventCol)
+    {
+        if (EventCol.gameObject.tag == "GravityChange")
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, (EventCol.contacts[0].point - transform.position),out hit))
+            {
+                Physics.gravity = hit.normal * -9.81f;
+                Quaternion TargetRot = Quaternion.AngleAxis(-Vector3.Angle(hit.normal, transform.up), Vector3.Cross(hit.normal, transform.up).normalized) * transform.rotation;
+                transform.rotation = TargetRot;
+            }
+        }
+
+        isFalling = false;
     }
 }
