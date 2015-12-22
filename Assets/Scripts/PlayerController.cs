@@ -45,11 +45,7 @@ public class PlayerController : MonoBehaviour
         
 
     }
-    void OnCollisionStay()
-    {
-       
-
-    }
+  
 
     void OnTriggerEnter(Collider other)
     {
