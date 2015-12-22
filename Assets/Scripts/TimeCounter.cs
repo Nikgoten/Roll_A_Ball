@@ -8,6 +8,13 @@ public class TimeCounter : MonoBehaviour {
 
     private float time;
 
+    //void Start()
+    //{
+        //GameObject Goal = GameObject.Find("Goal");
+        //GoalEvent goalEvent = Goal.GetComponent<GoalEvent>();
+        //goalEvent.timeScore = true;
+    //}
+
     void Update()
     {
         time += Time.deltaTime;
@@ -19,7 +26,6 @@ public class TimeCounter : MonoBehaviour {
         //update the label value
         timeText.text = string.Format("{0:00} : {1:00} : {2:00}", minutes, seconds, fraction);
 
-        
 
     }
 }
