@@ -3,11 +3,13 @@ using System.Collections;
 
 public class GoalEvent : MonoBehaviour {
 
-    
+    public TimeCounter tm;
 
-	// Use this for initialization
-	
-    // Update is called once per frame
+    void Start ()
+    {
+        //tm.timeCounter();
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -19,6 +21,12 @@ public class GoalEvent : MonoBehaviour {
 
     public void StartLevel()
     {
+        //SaveScore();
         Application.LoadLevel(2);
     }
+
+    //void SaveScore()
+    //{
+        //PlayerPrefs.SetInt("Score", tm.timeCounter);
+    //}
 }
