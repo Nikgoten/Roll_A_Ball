@@ -5,15 +5,8 @@ using UnityEngine.UI;
 public class TimeCounter : MonoBehaviour {
 
     public Text timeText;
-   
-    public float time;
-
-    //void Start()
-    //{
-        //GameObject Goal = GameObject.Find("Goal");
-        //GoalEvent goalEvent = Goal.GetComponent<GoalEvent>();
-        //goalEvent.timeScore = true;
-    //}
+    public static float time;
+    
 
     void Update()
     {

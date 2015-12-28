@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using UnityEngine.UI;
 
@@ -19,7 +20,7 @@ public class StartButton : MonoBehaviour {
 
     public void StartLevel ()
     {
-        Application.LoadLevel (1);
+        SceneManager.LoadScene(1);
     }
 	
 	// Update is called once per frame

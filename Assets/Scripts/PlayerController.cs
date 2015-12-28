@@ -7,16 +7,18 @@ public class PlayerController : MonoBehaviour
 {
     public static event Action<RaycastHit> EventChangedGravity;
 
-
     public float speed;
     public Text countText;
     public Text winText;
     public float jumpHeight;
+    public float virtualAxisSpeedUp;
 
     public Rigidbody rb;
 
     private int count;
     private bool isFalling = false;
+
+    private float virtualVelocityAxis = 1f;
 
     Camera mainCam;
 
@@ -32,10 +34,19 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (Input.GetAxis("Vertical") != 0f)
+        {
+            virtualVelocityAxis += Time.deltaTime;
+        }
+        else
+        {
+            virtualVelocityAxis = 1f;
+        }
+
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
-        Vector3 movement = mainCam.transform.forward * moveVertical + mainCam.transform.right * moveHorizontal;
+        Vector3 movement = mainCam.transform.forward * moveVertical * virtualVelocityAxis + mainCam.transform.right * moveHorizontal;
 
         rb.AddForce(movement * speed);
        

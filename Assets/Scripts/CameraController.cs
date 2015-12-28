@@ -4,6 +4,7 @@ using System.Collections;
 public class CameraController : MonoBehaviour {
 
     public GameObject player;
+
     [SerializeField]
     private float heightOffset;
     [SerializeField]
@@ -35,7 +36,6 @@ public class CameraController : MonoBehaviour {
     private IEnumerator SlerpToNewRotation(Quaternion quat)
     {
         float counter = 0.0f;
-        float newHeight = transform.up.y * heightOffset;
 
         while (counter < 1.0f)
         {
@@ -44,5 +44,10 @@ public class CameraController : MonoBehaviour {
 
             yield return null;
         }
+    }
+
+    private void OnDestroy()
+    {
+        PlayerController.EventChangedGravity -= AdjustCameraToPlane;
     }
 }
