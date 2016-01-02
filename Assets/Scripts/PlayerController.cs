@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using System;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -75,6 +76,17 @@ public class PlayerController : MonoBehaviour
             isFalling = true;
 
             
+        }
+    }
+
+    void OnTriggerExit (Collider other)
+    {
+        if (other.gameObject.CompareTag("PlayArea"))
+        {
+
+
+            SceneManager.LoadScene(0);
+
         }
     }
 
