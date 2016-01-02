@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public Text winText;
     public float jumpHeight;
     public float virtualAxisSpeedUp;
+    public Vector3 movement;
 
     public Rigidbody rb;
 
@@ -26,6 +27,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         count = 0;
+        
         SetCountText();
         winText.text = "";
 
@@ -64,11 +66,15 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Collectible"))
+        if (other.gameObject.CompareTag("JumpPad"))
         {
-            other.gameObject.SetActive(false);
-            count = count + 1;
-            SetCountText();
+           
+            
+            // makes the player jump by contact
+            rb.AddForce(-Physics.gravity.normalized * 1000);
+            isFalling = true;
+
+            
         }
     }
 
