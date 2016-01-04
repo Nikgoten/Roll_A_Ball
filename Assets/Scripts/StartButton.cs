@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class StartButton : MonoBehaviour {
 
     public Button startButton;
+  
 
     //public Button exitButton;
    
@@ -14,15 +15,21 @@ public class StartButton : MonoBehaviour {
 
         startButton = startButton.GetComponent<Button> ();
 
-        //exitButton = exitButton.GetComponent<startButton>();
+        //exitButton = exitButton.GetComponent<Button>();
         
 	}
 
     public void StartLevel ()
     {
-        SceneManager.LoadScene(1);
+        TimeCounter.time = 0f;
+        SceneManager.LoadScene(2);
     }
-	
-	// Update is called once per frame
-	
+
+    //public void ExitLevel()
+    //{
+        //TimeCounter.time = 0f;
+        //SceneManager.LoadScene(0);
+    //}
+    
+
 }

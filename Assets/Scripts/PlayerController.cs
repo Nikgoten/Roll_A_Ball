@@ -10,14 +10,14 @@ public class PlayerController : MonoBehaviour
 
     public float speed;
     public Text countText;
-    public Text winText;
+   
     public float jumpHeight;
     public float virtualAxisSpeedUp;
     public Vector3 movement;
 
     public Rigidbody rb;
 
-    private int count;
+    
     private bool isFalling = false;
 
     private float virtualVelocityAxis = 1f;
@@ -27,11 +27,6 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        count = 0;
-        
-        SetCountText();
-        winText.text = "";
-
         mainCam = Camera.main;
     }
 
@@ -65,9 +60,9 @@ public class PlayerController : MonoBehaviour
     }
   
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider player)
     {
-        if (other.gameObject.CompareTag("JumpPad"))
+        if (player.gameObject.CompareTag("JumpPad"))
         {
            
             
@@ -77,7 +72,9 @@ public class PlayerController : MonoBehaviour
 
             
         }
+       
     }
+
 
     void OnTriggerExit (Collider other)
     {
@@ -90,14 +87,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void SetCountText()
-    {
-        countText.text = "Count: " + count.ToString();
-        if (count >= 10)
-        {
-            winText.text = "You Win!";
-        }
-    }
+   
 
     void OnCollisionEnter(Collision EventCol)
     {
