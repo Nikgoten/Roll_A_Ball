@@ -9,7 +9,7 @@ public class GoalEvent : MonoBehaviour
 {
     
     public Canvas End;
-    private bool EndGame = false;
+    
    
 
     private HSBColor color;
@@ -34,9 +34,10 @@ public class GoalEvent : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
 
-            GoToHighscore();
-            EndGame = true;
+            //GoToHighscore();
+            End.enabled = true;
             PlayerPrefs.SetInt("Lvl_01_finished", 1);
+            Time.timeScale = 0;
 
         }
 
@@ -53,22 +54,6 @@ public class GoalEvent : MonoBehaviour
     private void Update()
     {
         
-        if (EndGame == true)
-        {
-
-            Time.timeScale = 0;
-            EndGame = true;
-            End.enabled = true;
-        }
-
-        if (EndGame == false)
-        {
-            Time.timeScale = 1;
-            EndGame = false;
-            End.enabled = false;
-        }
-
-
         counter += Time.deltaTime * speed;
 
         color.h = counter % 1f;

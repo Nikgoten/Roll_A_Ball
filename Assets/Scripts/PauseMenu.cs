@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PauseMenu : MonoBehaviour {
 
     private bool pauseGame = false;
-
+    public Canvas End;
     public Canvas Menu;
 	
 	
@@ -26,15 +26,16 @@ public class PauseMenu : MonoBehaviour {
                 Time.timeScale = 0;
                 pauseGame = true;
                 Menu.enabled = true;
+                
             }
         }
-
-        if(pauseGame == false)
+        
+        if(pauseGame == false && !End.enabled)
         {
             Time.timeScale = 1;
             pauseGame = false;
             Menu.enabled = false;
-        }
+}
 
 	}
 }
