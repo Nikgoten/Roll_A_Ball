@@ -82,7 +82,7 @@ public class PlayerController : MonoBehaviour
         {
 
 
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene("Game Over");
 
         }
     }

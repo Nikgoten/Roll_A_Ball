@@ -9,8 +9,9 @@ public class GoalEvent : MonoBehaviour
 {
     
     public Canvas End;
-    
-   
+    public PauseMenu pauseMenu;
+  
+
 
     private HSBColor color;
     private float counter;
@@ -27,6 +28,7 @@ public class GoalEvent : MonoBehaviour
         color = new HSBColor(0, 1, 1, 0.5f);
         End.enabled = false;
         
+
     }
 
     void OnTriggerEnter(Collider other)
@@ -36,8 +38,10 @@ public class GoalEvent : MonoBehaviour
 
             //GoToHighscore();
             End.enabled = true;
+            pauseMenu.enabled = false;
             PlayerPrefs.SetInt("Lvl_01_finished", 1);
             Time.timeScale = 0;
+            
 
         }
 
