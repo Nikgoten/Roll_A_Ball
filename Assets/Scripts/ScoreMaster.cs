@@ -12,6 +12,10 @@ public class ScoreMaster : MonoBehaviour
     [SerializeField]
     private CanvasGroup highscoreGroup;
     [SerializeField]
+    private Button mainMenu;
+    [SerializeField]
+    private Button nextLevel;
+    [SerializeField]
     private CanvasGroup nameEnterGroup;
 
     [SerializeField]
@@ -45,6 +49,9 @@ public class ScoreMaster : MonoBehaviour
         highscoreGroup.alpha = 0f;
         highscoreGroup.blocksRaycasts = false;
         highscoreGroup.interactable = false;
+        mainMenu.enabled = false;
+        nextLevel.enabled = false;
+        
     }
 
     public void SaveHighscore()
@@ -62,6 +69,10 @@ public class ScoreMaster : MonoBehaviour
         highscoreGroup.alpha = 1f;
         highscoreGroup.blocksRaycasts = true;
         highscoreGroup.interactable = true;
+
+        mainMenu.enabled = true;
+        nextLevel.enabled = true;
+
 
         for (int i = 0; i < names.Length && i < scores.Length; i++)
         {
