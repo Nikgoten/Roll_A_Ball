@@ -47,7 +47,6 @@ public class PlayerController : MonoBehaviour
         Vector3 movement = mainCam.transform.forward * moveVertical * virtualVelocityAxis + mainCam.transform.right * moveHorizontal;
 
         rb.AddForce(movement * speed);
-       
     }
 
     void Update()
@@ -57,6 +56,8 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(-Physics.gravity.normalized * jumpHeight );
             isFalling = true;
         }
+        
+     
     }
   
 
