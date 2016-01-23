@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Text;
 
 public class TimeCounter : MonoBehaviour {
 
@@ -23,6 +24,5 @@ public class TimeCounter : MonoBehaviour {
 
         //update the label value
         timeText.text = string.Format("{0:00} : {1:00} : {2:00}", minutes, seconds, fraction);
-
     }
 }
