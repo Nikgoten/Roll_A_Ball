@@ -23,7 +23,7 @@ public class StartButton : MonoBehaviour {
     public void StartLevel ()
     {
         TimeCounter.time = 0f;
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void ExitLevel()

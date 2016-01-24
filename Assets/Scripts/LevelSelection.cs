@@ -8,13 +8,18 @@ public class LevelSelection : MonoBehaviour {
     public Button backButton;
 
     public GameObject Level01Button;
+    //public GameObject Level02Button;
 
     public Image Level01;
-    
+    //public Image Level02;
+
     void Start () {
 
         Level01.enabled = false;
         Level01Button.SetActive(false);
+
+        //Level02.enabled = false;
+        //Level02Button.SetActive(false);
 
         backButton = backButton.GetComponent<Button>();
 

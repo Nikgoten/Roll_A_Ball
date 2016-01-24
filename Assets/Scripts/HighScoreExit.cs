@@ -11,7 +11,7 @@ public class HighScoreExit : MonoBehaviour {
     public void NextStage()
     {
 
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void ExitLevel()
