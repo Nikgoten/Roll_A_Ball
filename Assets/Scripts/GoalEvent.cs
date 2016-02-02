@@ -22,8 +22,9 @@ public class GoalEvent : MonoBehaviour
     private MeshRenderer rend;
     [SerializeField]
     private Light dLight;
+
     [SerializeField]
-    private string intDatabaseName;
+    public string intDatabaseName;
 
     private void Start()
     {
@@ -41,7 +42,8 @@ public class GoalEvent : MonoBehaviour
             //GoToHighscore();
             End.enabled = true;
             pauseMenu.enabled = false;
-            
+
+            ScoreMaster.previousSceneName = intDatabaseName;
             PlayerPrefs.SetInt(intDatabaseName, 1);
             Time.timeScale = 0;
             

@@ -12,6 +12,7 @@ public class HighScoreExit : MonoBehaviour {
     {
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        TimeCounter.time = 0f;
     }
 
     public void ExitLevel()
