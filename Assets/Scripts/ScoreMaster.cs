@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using System.IO;
 using System;
+using UnityEngine.SceneManagement;
 
 public class ScoreMaster : MonoBehaviour
 {
@@ -22,6 +23,8 @@ public class ScoreMaster : MonoBehaviour
     private Text[] names;
     [SerializeField]
     private Text[] scores;
+    
+
 
     private HighScoreContainer container = new HighScoreContainer();
 
@@ -115,7 +118,7 @@ public class ScoreMaster : MonoBehaviour
             Directory.CreateDirectory("Highscores");
         }
 
-        if (!File.Exists("Highscores/level1.txt"))
+        if (!File.Exists("Highscores/level1.txt")&& );
         {
             File.WriteAllLines("Highscores/level1.txt", new string[] { "" });
         }
