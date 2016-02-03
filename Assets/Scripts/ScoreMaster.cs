@@ -24,7 +24,7 @@ public class ScoreMaster : MonoBehaviour
     [SerializeField]
     private Text[] scores;
 
-    public GoalEvent goalEvent;
+    //public GoalEvent goalEvent;
 
     public static string previousSceneName;
     
@@ -123,15 +123,15 @@ public class ScoreMaster : MonoBehaviour
             Directory.CreateDirectory("Highscores");
         }
 
-        if (!File.Exists("Highscores/" + previousSceneName + ".txt"))
+        if (!File.Exists("Highscores/"+previousSceneName+".txt"))
         {
            
 
-            File.WriteAllLines("Highscores/level1.txt", new string[] { "" });
+            File.WriteAllLines("Highscores/"+previousSceneName+".txt", new string[] { "" });
         }
 
         //Highscore already exists
-        string[] contentArr = File.ReadAllLines("Highscores/ "+ previousSceneName +" .txt");
+        string[] contentArr = File.ReadAllLines("Highscores/"+previousSceneName+".txt");
         string content = "";
 
         for (int i = 0; i < contentArr.Length; i++)
@@ -155,7 +155,7 @@ public class ScoreMaster : MonoBehaviour
 
         string[] newContent = new string[] { JsonUtility.ToJson(container, true) };
 
-        File.WriteAllLines("Highscores/" + previousSceneName + " .txt", newContent);
+        File.WriteAllLines("Highscores/"+previousSceneName+".txt", newContent);
     }
 
     public class PairComparer : IComparer<NameScorePair>
