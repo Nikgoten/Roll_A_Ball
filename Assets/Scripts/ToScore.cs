@@ -19,6 +19,6 @@ public class ToScore : MonoBehaviour {
     public void ToHighScore()
     {
         
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(2);
     }
 }

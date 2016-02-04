@@ -27,8 +27,8 @@ public class ScoreMaster : MonoBehaviour
     //public GoalEvent goalEvent;
 
     public static string previousSceneName;
-    
 
+    
 
     private HighScoreContainer container = new HighScoreContainer();
 
@@ -58,7 +58,8 @@ public class ScoreMaster : MonoBehaviour
         highscoreGroup.interactable = false;
         mainMenu.enabled = false;
         nextLevel.enabled = false;
-        
+
+       
 
     }
 

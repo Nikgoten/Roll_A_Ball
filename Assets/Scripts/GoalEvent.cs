@@ -44,6 +44,7 @@ public class GoalEvent : MonoBehaviour
             pauseMenu.enabled = false;
 
             ScoreMaster.previousSceneName = intDatabaseName;
+            
             PlayerPrefs.SetInt(intDatabaseName, 1);
             Time.timeScale = 0;
             
@@ -55,7 +56,7 @@ public class GoalEvent : MonoBehaviour
 
     public void GoToHighscore()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(2);
     }
 
    
