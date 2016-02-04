@@ -14,7 +14,7 @@ public class StartButton : MonoBehaviour {
     
     void Start () {
 
-        startButton = startButton.GetComponent<Button> ();
+        startButton = startButton.GetComponent<Button>();
 
         exitButton = exitButton.GetComponent<Button>();
         
