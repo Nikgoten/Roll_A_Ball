@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
            
             
             // makes the player jump by contact
-            rb.AddForce(-Physics.gravity.normalized * 1000);
+            rb.AddForce(-Physics.gravity.normalized * 1200);
             isFalling = true;
 
             

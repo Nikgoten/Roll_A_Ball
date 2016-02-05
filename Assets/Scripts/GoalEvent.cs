@@ -24,7 +24,7 @@ public class GoalEvent : MonoBehaviour
     private Light dLight;
 
     [SerializeField]
-    public int intDatabaseName;
+    public string intDatabaseName;
 
     private void Start()
     {
@@ -44,7 +44,8 @@ public class GoalEvent : MonoBehaviour
             pauseMenu.enabled = false;
 
             ScoreMaster.previousSceneName = intDatabaseName;
-            HighScoreExit.c = intDatabaseName;
+            HighScoreExit.c = SceneManager.GetActiveScene().buildIndex;
+            PlayerPrefs.SetInt(intDatabaseName, 1);
             Time.timeScale = 0;
             
 

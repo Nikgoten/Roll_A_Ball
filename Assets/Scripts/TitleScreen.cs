@@ -19,7 +19,7 @@ public class TitleScreen : MonoBehaviour {
     public void StartLevel()
     {
         TimeCounter.time = 0f;
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(4);
     }
     // Update is called once per frame
     public void LevelSelection()
