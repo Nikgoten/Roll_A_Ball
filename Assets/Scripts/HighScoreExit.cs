@@ -5,22 +5,24 @@ using UnityEngine.UI;
 
 public class HighScoreExit : MonoBehaviour {
 
-    public static string continueStage;
+    public static int c;
+
+    
 
 
-    public void Start()
-    {
-     SceneManager.SetActiveScene(SceneManager.GetSceneByName(ScoreMaster.previousSceneName));
-    }
-
+     
+   
     public void NextStage()
     {
 
+ 
 
+       SceneManager.LoadScene(c+1);
+            
+       TimeCounter.time = 0f;
 
         
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
-        TimeCounter.time = 0f;
+       
     }
 
     public void ExitLevel()

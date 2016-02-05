@@ -26,7 +26,7 @@ public class ScoreMaster : MonoBehaviour
 
     //public GoalEvent goalEvent;
 
-    public static string previousSceneName;
+    public static int previousSceneName;
 
     
 
