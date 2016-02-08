@@ -7,13 +7,15 @@ public class TitleScreen : MonoBehaviour {
 
     public Button startButton;
     public Button levelSelectButton;
+    public Button escapeButton;
+    
 
     // Use this for initialization
     void Start()
     {
         startButton = startButton.GetComponent<Button>();
         levelSelectButton = levelSelectButton.GetComponent<Button>();
-
+        escapeButton = escapeButton.GetComponent<Button>();
     }
 
     public void StartLevel()
@@ -26,5 +28,11 @@ public class TitleScreen : MonoBehaviour {
     {
 
         SceneManager.LoadScene(1);
+    }
+
+    public void EscapeGame()
+    {
+
+        Application.Quit();
     }
 }

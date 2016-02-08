@@ -30,8 +30,8 @@ public class GoalEvent : MonoBehaviour
     {
         color = new HSBColor(0, 1, 1, 0.5f);
         End.enabled = false;
+        GameOverScript.lastScene = SceneManager.GetActiveScene().buildIndex;
         
-
     }
 
     void OnTriggerEnter(Collider other)
@@ -39,13 +39,16 @@ public class GoalEvent : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
 
-            //GoToHighscore();
+            
             End.enabled = true;
             pauseMenu.enabled = false;
 
             ScoreMaster.previousSceneName = intDatabaseName;
+
             HighScoreExit.c = SceneManager.GetActiveScene().buildIndex;
+            
             PlayerPrefs.SetInt(intDatabaseName, 1);
+
             Time.timeScale = 0;
             
 
