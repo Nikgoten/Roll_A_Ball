@@ -30,6 +30,7 @@ public class GoalEvent : MonoBehaviour
     public AudioClip StageClear;
 
     private AudioSource source;
+    public AudioSource LevelMusic;
 
     private void Start()
     {
@@ -46,7 +47,7 @@ public class GoalEvent : MonoBehaviour
 
             source.PlayOneShot(cheering);
             source.PlayOneShot(StageClear);
-            
+            LevelMusic.Stop();
 
             End.enabled = true;
             pauseMenu.enabled = false;

@@ -8,11 +8,13 @@ public class PauseMenu : MonoBehaviour {
     private bool pauseGame = false;
     public Canvas End;
     public Canvas Menu;
-	
-	
+   
+
+
     void Start ()
     {
         Menu.enabled = false;
+        
     }
 
 	void Update () {
@@ -21,12 +23,18 @@ public class PauseMenu : MonoBehaviour {
         {
             pauseGame = !pauseGame;
 
-            if(pauseGame == true)
+            if(pauseGame)
             {
-                Time.timeScale = 0;
+                Time.timeScale = 0f;
                 pauseGame = true;
                 Menu.enabled = true;
+                PlayerController.playerSound.Pause();
                 
+            }
+            else
+            {
+                Time.timeScale = 1f;
+                PlayerController.playerSound.Play();
             }
         }
         
@@ -35,6 +43,7 @@ public class PauseMenu : MonoBehaviour {
             Time.timeScale = 1;
             pauseGame = false;
             Menu.enabled = false;
+
 }
 
 	}

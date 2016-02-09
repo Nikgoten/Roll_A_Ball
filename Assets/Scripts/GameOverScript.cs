@@ -8,6 +8,7 @@ public class GameOverScript : MonoBehaviour {
     public Button startButton;
     public Button exitButton;
     public static int lastScene;
+    
 
     void Start()
     {
@@ -16,11 +17,13 @@ public class GameOverScript : MonoBehaviour {
 
         exitButton = exitButton.GetComponent<Button>();
 
+        
     }
 
     public void StartLevel()
     {
         TimeCounter.time = 0f;
+      
         SceneManager.LoadScene(lastScene);
     }
 

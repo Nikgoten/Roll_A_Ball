@@ -12,10 +12,12 @@ public class PlayerController : MonoBehaviour
 
     public AudioClip jumpSound;
     public AudioClip contactSound;
-   
+    public AudioClip jumpPad;
+    public Canvas PauseMenu;
+
     private float volLowRange = 0.25f;
     private float volHighRange = 0.8f;
-    public Text countText;
+    
 
    
     public float jumpHeight;
@@ -29,7 +31,7 @@ public class PlayerController : MonoBehaviour
 
     private float virtualVelocityAxis = 1f;
 
-    private AudioSource source;
+    public static AudioSource playerSound;
 
     Camera mainCam;
 
@@ -37,7 +39,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         mainCam = Camera.main;
-        source = GetComponent<AudioSource>();
+        playerSound = GetComponent<AudioSource>();
         
     }
 
@@ -67,12 +69,12 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(-Physics.gravity.normalized * jumpHeight );
 
             float vol = UnityEngine.Random.Range(volLowRange, volHighRange);
-            source.PlayOneShot(jumpSound, vol);
+            playerSound.PlayOneShot(jumpSound, vol);
             
 
             isFalling = true;
         }
-
+        
     }
 
 
@@ -80,8 +82,8 @@ public class PlayerController : MonoBehaviour
     {
         if (player.gameObject.CompareTag("JumpPad"))
         {
-           
-            
+            float vol = UnityEngine.Random.Range(volLowRange, volHighRange);
+            playerSound.PlayOneShot(jumpPad, vol);
             // makes the player jump by contact
             rb.AddForce(-Physics.gravity.normalized * 1200);
             isFalling = true;
@@ -96,8 +98,8 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("PlayArea"))
         {
-
-
+            
+            TimeCounter.time = 0f;
             SceneManager.LoadScene("Game Over");
 
         }
@@ -108,7 +110,7 @@ public class PlayerController : MonoBehaviour
     void OnCollisionEnter(Collision EventCol)
     {
         float vol = UnityEngine.Random.Range(volLowRange, volHighRange);
-        source.PlayOneShot(contactSound, vol);
+        playerSound.PlayOneShot(contactSound, vol);
 
         if (EventCol.gameObject.tag == "GravityChange")
         {
