@@ -26,12 +26,17 @@ public class GoalEvent : MonoBehaviour
     [SerializeField]
     public string intDatabaseName;
 
+    public AudioClip cheering;
+    public AudioClip StageClear;
+
+    private AudioSource source;
+
     private void Start()
     {
         color = new HSBColor(0, 1, 1, 0.5f);
         End.enabled = false;
         GameOverScript.lastScene = SceneManager.GetActiveScene().buildIndex;
-        
+        source = GetComponent<AudioSource>();
     }
 
     void OnTriggerEnter(Collider other)
@@ -39,7 +44,10 @@ public class GoalEvent : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
 
+            source.PlayOneShot(cheering);
+            source.PlayOneShot(StageClear);
             
+
             End.enabled = true;
             pauseMenu.enabled = false;
 

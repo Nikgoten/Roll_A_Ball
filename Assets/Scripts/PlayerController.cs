@@ -9,7 +9,14 @@ public class PlayerController : MonoBehaviour
     public static event Action<RaycastHit> EventChangedGravity;
 
     public float speed;
+
+    public AudioClip jumpSound;
+    public AudioClip contactSound;
+   
+    private float volLowRange = 0.25f;
+    private float volHighRange = 0.8f;
     public Text countText;
+
    
     public float jumpHeight;
     public float virtualAxisSpeedUp;
@@ -22,12 +29,16 @@ public class PlayerController : MonoBehaviour
 
     private float virtualVelocityAxis = 1f;
 
+    private AudioSource source;
+
     Camera mainCam;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         mainCam = Camera.main;
+        source = GetComponent<AudioSource>();
+        
     }
 
     void FixedUpdate()
@@ -54,12 +65,16 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isFalling == false)
         {
             rb.AddForce(-Physics.gravity.normalized * jumpHeight );
+
+            float vol = UnityEngine.Random.Range(volLowRange, volHighRange);
+            source.PlayOneShot(jumpSound, vol);
+            
+
             isFalling = true;
         }
-        
-     
+
     }
-  
+
 
     void OnTriggerEnter(Collider player)
     {
@@ -92,6 +107,9 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter(Collision EventCol)
     {
+        float vol = UnityEngine.Random.Range(volLowRange, volHighRange);
+        source.PlayOneShot(contactSound, vol);
+
         if (EventCol.gameObject.tag == "GravityChange")
         {
             RaycastHit hit;
