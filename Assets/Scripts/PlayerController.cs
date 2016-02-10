@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     public AudioClip jumpSound;
     public AudioClip contactSound;
     public AudioClip jumpPad;
+    public AudioClip go;
+
     public Canvas PauseMenu;
 
     private float volLowRange = 0.25f;
@@ -39,8 +41,11 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         mainCam = Camera.main;
+
         playerSound = GetComponent<AudioSource>();
-        
+        playerSound.PlayOneShot(go);
+
+        Physics.gravity = new Vector3(0.0f, -9.81f, 0.0f);
     }
 
     void FixedUpdate()

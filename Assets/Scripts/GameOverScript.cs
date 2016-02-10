@@ -7,8 +7,10 @@ public class GameOverScript : MonoBehaviour {
 
     public Button startButton;
     public Button exitButton;
+    public AudioClip continueGame;
     public static int lastScene;
-    
+
+    public static AudioSource gameOverSound;
 
     void Start()
     {
@@ -17,7 +19,10 @@ public class GameOverScript : MonoBehaviour {
 
         exitButton = exitButton.GetComponent<Button>();
 
-        
+        gameOverSound = GetComponent<AudioSource>();
+
+        gameOverSound.PlayOneShot(continueGame);
+
     }
 
     public void StartLevel()

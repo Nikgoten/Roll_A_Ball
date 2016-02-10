@@ -18,7 +18,6 @@ public class LevelEnd : MonoBehaviour {
         if (End.enabled == true)
         {
 
-            Debug.Log("Does it work?");
             Time.timeScale = 0;
 
         }
