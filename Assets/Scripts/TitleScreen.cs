@@ -10,7 +10,6 @@ public class TitleScreen : MonoBehaviour {
     public Button escapeButton;
     
 
-    // Use this for initialization
     void Start()
     {
         startButton = startButton.GetComponent<Button>();
@@ -23,7 +22,7 @@ public class TitleScreen : MonoBehaviour {
         TimeCounter.time = 0f;
         SceneManager.LoadScene(4);
     }
-    // Update is called once per frame
+    
     public void LevelSelection()
     {
 

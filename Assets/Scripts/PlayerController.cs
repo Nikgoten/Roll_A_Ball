@@ -89,7 +89,9 @@ public class PlayerController : MonoBehaviour
         {
             float vol = UnityEngine.Random.Range(volLowRange, volHighRange);
             playerSound.PlayOneShot(jumpPad, vol);
+
             // makes the player jump by contact
+
             rb.AddForce(-Physics.gravity.normalized * 1200);
             isFalling = true;
 

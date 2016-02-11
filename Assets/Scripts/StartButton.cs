@@ -6,9 +6,6 @@ using UnityEngine.UI;
 public class StartButton : MonoBehaviour {
 
     public Button startButton;
-
-   
-
     public Button exitButton;
    
     

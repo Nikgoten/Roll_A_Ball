@@ -3,12 +3,10 @@ using System.Collections;
 
 public class PlayerPrefsControl : MonoBehaviour {
 
-    
+    //For checking if Level Selection works.
 
 	void Start () {
         
-
-       
 
     }
 	

@@ -24,7 +24,7 @@ public class ScoreMaster : MonoBehaviour
     [SerializeField]
     private Text[] scores;
 
-    //public GoalEvent goalEvent;
+   
 
     public static string previousSceneName;
 

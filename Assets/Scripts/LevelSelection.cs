@@ -11,11 +11,13 @@ public class LevelSelection : MonoBehaviour {
     public GameObject Level02Button;
     public GameObject Level03Button;
     public GameObject Level04Button;
+    public GameObject Level05Button;
 
     public Image Level01;
     public Image Level02;
     public Image Level03;
     public Image Level04;
+    public Image Level05;
 
     void Start () {
 
@@ -30,6 +32,9 @@ public class LevelSelection : MonoBehaviour {
 
         Level04.enabled = false;
         Level04Button.SetActive(false);
+
+        Level05.enabled = false;
+        Level05Button.SetActive(false);
 
         backButton = backButton.GetComponent<Button>();
 
@@ -71,6 +76,12 @@ public class LevelSelection : MonoBehaviour {
         SceneManager.LoadScene("Level_04");
     }
 
+    public void LevelFiveButton()
+    {
+
+        SceneManager.LoadScene("Level_05");
+    }
+
 
     public void LevelCheck()
     {
@@ -94,6 +105,11 @@ public class LevelSelection : MonoBehaviour {
         {
             Level04.enabled = true;
             Level04Button.SetActive(true);
+        }
+        if (PlayerPrefs.GetInt("Level_05") == 1)
+        {
+            Level05.enabled = true;
+            Level05Button.SetActive(true);
         }
     }
 }
