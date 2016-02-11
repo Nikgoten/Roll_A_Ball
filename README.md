@@ -17,6 +17,9 @@ Notes:
 - Attention! The ball gets continuosly faster when you hold W down. And it can happen that he starts to jump
   because of the gravity - unity bug. Even with help of the others there where no solution.
 
-- same about the camera. when it doesn´t turns as it should be, just jump another time carefully. Then it works.
+- same about the camera. when it doesn´t turns as it should be, just jump another time carefully. Then it works. 
+  If you hit the planes on the wrong side, you will know.
+
+- Hint: The levels are structured that you can use it to your advantage ;D 
 
 HAVE FUN!
